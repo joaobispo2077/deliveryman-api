@@ -1,3 +1,8 @@
-const serverRunning = 'not ok';
+import { config } from './config';
+import { app } from './infra/http/app';
 
-console.log(serverRunning);
+const serverConfig = config.server;
+
+app.listen(serverConfig.port, () => {
+  console.log(`Server running on port ${serverConfig.port}`);
+});
