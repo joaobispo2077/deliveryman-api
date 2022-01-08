@@ -11,7 +11,8 @@
   "author": "João Bispo <joaobispo2077@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "commit:lint": "lint-staged"
+    "commit:lint": "lint-staged",
+    "dev:migrate": "yarn prisma migrate dev"
   },
   "engines": {
     "node": "16.13.1",
