@@ -4,10 +4,18 @@
   "description": "API to process delivery people, clients and orders.",
   "main": "index.js",
   "repository": "https://github.com/joaobispo2077/deliveryman-api.git",
+  "bugs": {
+    "url": "https://github.com/joaobispo2077/deliveryman-api/issues"
+  },
+  "homepage": "https://github.com/joaobispo2077/deliveryman-api#readme",
   "author": "João Bispo <joaobispo2077@gmail.com>",
   "license": "MIT",
   "scripts": {
     "commit:lint": "lint-staged"
+  },
+  "engines": {
+    "node": "16.13.1",
+    "npm": "8.1.2"
   },
   "devDependencies": {
     "@types/node": "^17.0.8",
