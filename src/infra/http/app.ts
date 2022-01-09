@@ -1,11 +1,12 @@
 import express from 'express';
 
+import { routes } from './routes';
+
 const app = express();
 
-app.get('/', (_, response) => {
-  return response.json({
-    message: 'Hello World',
-  });
-});
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+
+app.use(routes);
 
 export { app };
