@@ -1,14 +1,13 @@
 export class HttpError extends Error {
   public statusCode = 500;
 
-  constructor(error?: Error) {
-    super(error?.message ?? 'Unknown error');
+  constructor(message?: string) {
+    super(message || 'Unknown error');
     this.name = 'HttpError';
-    this.stack = error?.stack;
   }
 }
 
-export class ConflictError extends Error {
+export class ConflictError extends HttpError {
   public statusCode = 409;
 
   constructor(message?: string) {
@@ -16,7 +15,7 @@ export class ConflictError extends Error {
   }
 }
 
-export class NotFoundError extends Error {
+export class NotFoundError extends HttpError {
   public statusCode = 404;
 
   constructor(message?: string) {
@@ -24,7 +23,7 @@ export class NotFoundError extends Error {
   }
 }
 
-export class UnauthorizedError extends Error {
+export class UnauthorizedError extends HttpError {
   public statusCode = 401;
 
   constructor(message?: string) {
