@@ -13,6 +13,6 @@ export class CreateClientController {
       password,
     });
 
-    return response.json(createdClient);
+    return response.status(201).json(createdClient);
   };
 }

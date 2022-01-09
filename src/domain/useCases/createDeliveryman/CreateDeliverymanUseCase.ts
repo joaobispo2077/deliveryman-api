@@ -26,7 +26,7 @@ export class CreateDeliverymanUseCase {
 
     const hashPassword = await bcrypt.hash(password, 10);
 
-    const createdDeliveryman = await this.prisma.clients.create({
+    const createdDeliveryman = await this.prisma.deliveryman.create({
       data: {
         username,
         password: hashPassword,

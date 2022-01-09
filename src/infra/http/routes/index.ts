@@ -1,6 +1,7 @@
 import { Router } from 'express';
 
 import { AuthenticateClientController } from '../../../domain/useCases/authenticateClient/AuthenticateClientController';
+import { AuthenticateDeliverymanController } from '../../../domain/useCases/authenticateDeliveryman/AuthenticateDeliverymanController';
 import { CreateClientController } from '../../../domain/useCases/createClient/CreateClientController';
 import { CreateDeliverymanController } from '../../../domain/useCases/createDeliveryman/CreateDeliverymanController';
 
@@ -16,5 +17,9 @@ routes.post('/sessions/clients', authenticateClientController.handle);
 // deliveryman
 const createDeliverymanController = new CreateDeliverymanController();
 routes.post('/deliveryman', createDeliverymanController.handle);
+
+const authenticateDeliverymanController =
+  new AuthenticateDeliverymanController();
+routes.post('/sessions/deliveryman', authenticateDeliverymanController.handle);
 
 export { routes };
