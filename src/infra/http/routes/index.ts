@@ -5,6 +5,7 @@ import { AuthenticateDeliverymanController } from '../../../domain/useCases/auth
 import { CreateClientController } from '../../../domain/useCases/createClient/CreateClientController';
 import { CreateDeliveryController } from '../../../domain/useCases/createDelivery/CreateDeliveryController';
 import { CreateDeliverymanController } from '../../../domain/useCases/createDeliveryman/CreateDeliverymanController';
+import { FindAllDeliveriesAvailableController } from '../../../domain/useCases/findAllDeliveriesAvailable/findAllDeliveriesAvailableController';
 import { ensureAuthenticateClient } from '../middlewares/ensureAuthenticateClient';
 
 const routes = Router();
@@ -31,6 +32,13 @@ routes.post(
   '/deliveries',
   ensureAuthenticateClient,
   createDeliveryController.handle,
+);
+
+const findAllDeliveriesAvailableController =
+  new FindAllDeliveriesAvailableController();
+routes.get(
+  '/deliveries/available',
+  findAllDeliveriesAvailableController.handle,
 );
 
 export { routes };

@@ -1,4 +1,4 @@
-import { Deliverires, PrismaClient } from '@prisma/client';
+import { Deliveries, PrismaClient } from '@prisma/client';
 
 interface ICreateDeliveryPayload {
   id_client: string;
@@ -10,8 +10,8 @@ export class CreateDeliveryUseCase {
   async execute({
     id_client,
     item_name,
-  }: ICreateDeliveryPayload): Promise<Deliverires> {
-    const delivery = await this.prisma.deliverires.create({
+  }: ICreateDeliveryPayload): Promise<Deliveries> {
+    const delivery = await this.prisma.deliveries.create({
       data: {
         id_client,
         item_name,
