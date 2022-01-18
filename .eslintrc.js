@@ -24,6 +24,7 @@ module.exports = {
   rules: {
     camelcase: 'error', // throw highlighted error if variable name is not camelCase
     'prettier/prettier': 'error',
+    ' @typescript-eslint/no-namespace': 'off',
     '@typescript-eslint/naming-convention': [
       'error',
       {
