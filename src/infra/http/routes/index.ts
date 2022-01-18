@@ -7,6 +7,7 @@ import { CreateDeliveryController } from '../../../domain/useCases/createDeliver
 import { CreateDeliverymanController } from '../../../domain/useCases/createDeliveryman/CreateDeliverymanController';
 import { FindAllDeliveriesAvailableController } from '../../../domain/useCases/findAllDeliveriesAvailable/findAllDeliveriesAvailableController';
 import { ensureAuthenticateClient } from '../middlewares/ensureAuthenticateClient';
+import { ensureAuthenticateDeliveryman } from '../middlewares/ensureAuthenticateDeliveryman';
 
 const routes = Router();
 
@@ -38,6 +39,7 @@ const findAllDeliveriesAvailableController =
   new FindAllDeliveriesAvailableController();
 routes.get(
   '/deliveries/available',
+  ensureAuthenticateDeliveryman,
   findAllDeliveriesAvailableController.handle,
 );
 
