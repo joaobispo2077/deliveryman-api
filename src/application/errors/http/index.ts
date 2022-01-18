@@ -28,7 +28,19 @@ export class UnauthorizedError extends HttpError {
 
   constructor(message?: string) {
     super(
-      ` Unauthorized, the resource provided was unauthorized: '${
+      `Unauthorized, the resource provided was unauthorized: '${
+        message || ''
+      }'`,
+    );
+  }
+}
+
+export class UnprocessableEntityError extends HttpError {
+  public statusCode = 422;
+
+  constructor(message?: string) {
+    super(
+      `Unprocessable entity, the resource provided was invalid: '${
         message || ''
       }'`,
     );
