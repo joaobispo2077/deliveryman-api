@@ -17,7 +17,8 @@
   "scripts": {
     "dev": "ts-node-dev --exit-child --inspect --transpile-only --ignore-watch node_modules --respawn src/index.ts",
     "commit:lint": "lint-staged",
-    "dev:migrate": "yarn prisma migrate dev"
+    "dev:migrate": "yarn prisma migrate dev",
+    "dev:studio": "prisma studio"
   },
   "dependencies": {
     "@prisma/client": "^3.7.0",
