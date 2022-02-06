@@ -8,6 +8,7 @@ import { CreateDeliverymanController } from '../../../domain/useCases/createDeli
 import { FindAllDeliveriesAvailableController } from '../../../domain/useCases/findAllDeliveriesAvailable/findAllDeliveriesAvailableController';
 import { FindClientDeliveriesController } from '../../../domain/useCases/findClientDeliveries/FindClientDeliveriesController';
 import { FindDeveliverymanDeliveriesController } from '../../../domain/useCases/findDeliverymanDeliveries/FindDeveliverymanDeliveriesController';
+import { UpdateDeliveryEndDateController } from '../../../domain/useCases/updateDeliveryEndDate/UpdateDeliveryEndDateController';
 import { UpdateDeliverymanToDeliveryController } from '../../../domain/useCases/updateDeliverymanToDelivery/updateDeliverymanToDeliveryController';
 import { ensureAuthenticateClient } from '../middlewares/ensureAuthenticateClient';
 import { ensureAuthenticateDeliveryman } from '../middlewares/ensureAuthenticateDeliveryman';
@@ -67,6 +68,13 @@ routes.patch(
   '/deliveries/:id_delivery/deliveryman',
   ensureAuthenticateDeliveryman,
   updateDeliverymanToDeliveryController.handle,
+);
+
+const updateDeliveryEndDateController = new UpdateDeliveryEndDateController();
+routes.patch(
+  '/deliveries/:id_delivery',
+  ensureAuthenticateDeliveryman,
+  updateDeliveryEndDateController.handle,
 );
 
 export { routes };
