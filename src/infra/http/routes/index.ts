@@ -7,6 +7,7 @@ import { CreateDeliveryController } from '../../../domain/useCases/createDeliver
 import { CreateDeliverymanController } from '../../../domain/useCases/createDeliveryman/CreateDeliverymanController';
 import { FindAllDeliveriesAvailableController } from '../../../domain/useCases/findAllDeliveriesAvailable/findAllDeliveriesAvailableController';
 import { FindClientDeliveriesController } from '../../../domain/useCases/findClientDeliveries/FindClientDeliveriesController';
+import { FindDeveliverymanDeliveriesController } from '../../../domain/useCases/findDeliverymanDeliveries/FindDeveliverymanDeliveriesController';
 import { UpdateDeliverymanToDeliveryController } from '../../../domain/useCases/updateDeliverymanToDelivery/updateDeliverymanToDeliveryController';
 import { ensureAuthenticateClient } from '../middlewares/ensureAuthenticateClient';
 import { ensureAuthenticateDeliveryman } from '../middlewares/ensureAuthenticateDeliveryman';
@@ -34,6 +35,14 @@ routes.post('/deliveryman', createDeliverymanController.handle);
 const authenticateDeliverymanController =
   new AuthenticateDeliverymanController();
 routes.post('/sessions/deliveryman', authenticateDeliverymanController.handle);
+
+const findDelivymanDeliveriesController =
+  new FindDeveliverymanDeliveriesController();
+routes.get(
+  '/deliveryman/:id/deliveries',
+  ensureAuthenticateDeliveryman,
+  findDelivymanDeliveriesController.handle,
+);
 
 // deliveries
 
