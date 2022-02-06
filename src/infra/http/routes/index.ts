@@ -64,7 +64,7 @@ routes.get(
 const updateDeliverymanToDeliveryController =
   new UpdateDeliverymanToDeliveryController();
 routes.patch(
-  '/deliveries/:id_delivery',
+  '/deliveries/:id_delivery/deliveryman',
   ensureAuthenticateDeliveryman,
   updateDeliverymanToDeliveryController.handle,
 );
