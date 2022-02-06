@@ -6,6 +6,7 @@ import { CreateClientController } from '../../../domain/useCases/createClient/Cr
 import { CreateDeliveryController } from '../../../domain/useCases/createDelivery/CreateDeliveryController';
 import { CreateDeliverymanController } from '../../../domain/useCases/createDeliveryman/CreateDeliverymanController';
 import { FindAllDeliveriesAvailableController } from '../../../domain/useCases/findAllDeliveriesAvailable/findAllDeliveriesAvailableController';
+import { UpdateDeliverymanToDeliveryController } from '../../../domain/useCases/updateDeliverymanToDelivery/updateDeliverymanToDeliveryController';
 import { ensureAuthenticateClient } from '../middlewares/ensureAuthenticateClient';
 import { ensureAuthenticateDeliveryman } from '../middlewares/ensureAuthenticateDeliveryman';
 
@@ -41,6 +42,14 @@ routes.get(
   '/deliveries/available',
   ensureAuthenticateDeliveryman,
   findAllDeliveriesAvailableController.handle,
+);
+
+const updateDeliverymanToDeliveryController =
+  new UpdateDeliverymanToDeliveryController();
+routes.patch(
+  '/deliveries/:id_delivery',
+  ensureAuthenticateDeliveryman,
+  updateDeliverymanToDeliveryController.handle,
 );
 
 export { routes };

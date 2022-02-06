@@ -22,7 +22,7 @@ module.exports = {
   plugins: ['@typescript-eslint', 'prettier', 'eslint-plugin-import-helpers'],
   ignorePatterns: ['node_modules', '/*.js', 'dist'],
   rules: {
-    camelcase: 'warn', // throw highlighted error if variable name is not camelCase
+    camelcase: 'off',
     'prettier/prettier': 'error',
     ' @typescript-eslint/no-namespace': 'off',
     '@typescript-eslint/naming-convention': [
